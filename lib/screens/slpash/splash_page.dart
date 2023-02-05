@@ -10,6 +10,15 @@ class Splashp_Page extends StatefulWidget {
 class _Splashp_PageState extends State<Splashp_Page> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Stack(
+        children: [
+          CircleAvatar(
+            backgroundColor: Theme.of(context).backgroundColor,
+            radius: 50,
+          )
+        ],
+      ),
+    );
   }
 }
