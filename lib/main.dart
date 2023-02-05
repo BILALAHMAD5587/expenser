@@ -1,4 +1,5 @@
 import 'package:expenser_app/screens/slpash/splash_page.dart';
+import 'package:expenser_app/ui/custom_widgets/ui_helper.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,9 +12,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      darkTheme: ThemeData(
+          primarySwatch: createMaterialColor(MyColors.bgBColor),
+          backgroundColor: MyColors.bgBColor,
+          canvasColor: MyColors.bgWColor),
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+          primarySwatch: createMaterialColor(MyColors.bgWColor),
+          backgroundColor: MyColors.bgWColor,
+          canvasColor: MyColors.bgBColor),
       home: Splashp_Page(),
     );
   }
