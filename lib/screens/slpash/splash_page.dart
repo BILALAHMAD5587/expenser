@@ -11,12 +11,20 @@ class _Splashp_PageState extends State<Splashp_Page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).backgroundColor,
       body: Stack(
         children: [
-          CircleAvatar(
-            backgroundColor: Theme.of(context).backgroundColor,
+          Center(
+              child: CircleAvatar(
+            backgroundColor: Theme.of(context).canvasColor,
             radius: 50,
-          )
+          )),
+          Center(
+              child: ImageIcon(
+            AssetImage('assets/images/wallet_bw.png'),
+            size: 55,
+            color: Theme.of(context).backgroundColor,
+          ))
         ],
       ),
     );
