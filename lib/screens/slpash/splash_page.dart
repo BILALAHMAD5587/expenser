@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class Splashp_Page extends StatefulWidget {
@@ -8,6 +10,15 @@ class Splashp_Page extends StatefulWidget {
 }
 
 class _Splashp_PageState extends State<Splashp_Page> {
+
+  @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 5), () {Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ,));});
+
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
