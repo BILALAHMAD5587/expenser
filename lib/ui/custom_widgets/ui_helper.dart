@@ -6,11 +6,13 @@ class MyColors {
   static const Color bgWColor = Color(0xffffffff);
   static const Color secondryWColor = Color(0xfff1f0f3);
   static const Color textWColor = Color(0xff2c293c);
+  static const Color LighttextWColor = Color(0xffb1b1b5);
 
   //dark theme color
   static const Color bgBColor = Color(0xff2c293c);
   static const Color secoundryBColor = Color(0xff737373);
   static const Color textBColor = Color(0xffffffff);
+  static const Color LighttextBColor = Color(0xffcccccc);
 }
 
 MaterialColor createMaterialColor(Color color) {

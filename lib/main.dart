@@ -15,14 +15,15 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       themeMode: ThemeMode.dark,
       darkTheme: ThemeData(
-        primarySwatch: createMaterialColor(MyColors.bgBColor),
-        backgroundColor: MyColors.bgBColor,
-        canvasColor: MyColors.bgWColor,
-      ),
+          primarySwatch: createMaterialColor(MyColors.bgBColor),
+          backgroundColor: MyColors.bgBColor,
+          canvasColor: MyColors.bgWColor,
+          shadowColor: MyColors.LighttextBColor),
       theme: ThemeData(
           primarySwatch: createMaterialColor(MyColors.bgWColor),
           backgroundColor: MyColors.bgWColor,
-          canvasColor: MyColors.bgBColor),
+          canvasColor: MyColors.bgBColor,
+          shadowColor: MyColors.LighttextWColor),
       home: Splashp_Page(),
     );
   }

@@ -18,17 +18,26 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           children: [
             CustomLogoStack(),
-            SizedBox(height: 11,),
+            SizedBox(
+              height: 21,
+            ),
             Text(
-              "Login",
+              "Hello, Again",
               style: mTextStylr52(
                   fontweight: FontWeight.bold,
-                  mColor: Theme.of(context).canvasColor),
+                  mColor: Theme.of(context).backgroundColor),
             ),
-            SizedBox(height: 11,),
-            Text("Welcome Back You\`ve been missed", style: mTextStylr52(
-                fontweight: FontWeight.w300,
-                mColor: MyColors.),),
+            SizedBox(
+              height: 11,
+            ),
+            Text(
+              "Welcome Back You\`ve been missed",
+              style: mTextStylr52(
+                  fontweight: FontWeight.w300,
+                  mColor: Theme.of(context).shadowColor),
+            ),
+
+            //////////////////////////////////Uname and Password TextFiled////////////////////////
           ],
         ),
       ),
