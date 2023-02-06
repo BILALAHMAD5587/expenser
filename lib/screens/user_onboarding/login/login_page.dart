@@ -50,19 +50,17 @@ class _LoginPageState extends State<LoginPage> {
               ),
               CustomTextFiled(
                   mcontroller: userNameController,
-                  mfillcolor: MediaQuery.of(context).platformBrightness ==
-                          Brightness.light
-                      ? MyColors.secondryWColor
-                      : MyColors.secoundryBColor),
+                  mfillcolor: Theme.of(context).canvasColor,
+                micon: Icons.email_outlined,
+              ),
               SizedBox(
                 height: 11,
               ),
               CustomTextFiled(
                   mcontroller: passController,
-                  mfillcolor: MediaQuery.of(context).platformBrightness ==
-                          Brightness.light
-                      ? MyColors.secondryWColor
-                      : MyColors.secoundryBColor)
+                  mfillcolor: Theme.of(context).canvasColor,
+              micon: Icons.lock_open_outlined,
+              )
             ],
           ),
         ),
