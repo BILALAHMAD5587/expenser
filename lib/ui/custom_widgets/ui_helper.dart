@@ -53,6 +53,19 @@ TextStyle mTextStylr52({
       fontFamily: 'Quicksand');
 }
 
+TextStyle mTextStylr43({
+  mColor = Colors.green,
+  fontweight = FontWeight.normal,
+  fontStyle = FontStyle.normal,
+}) {
+  return TextStyle(
+      color: mColor,
+      fontWeight: fontweight,
+      fontSize: 43,
+      fontStyle: fontStyle,
+      fontFamily: 'Quicksand');
+}
+
 TextStyle mTextStylr26({
   mColor = Colors.green,
   fontweight = FontWeight.normal,

@@ -16,23 +16,24 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: Theme.of(context).backgroundColor,
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CustomLogoStack(),
             SizedBox(
-              height: 21,
+              height: 11,
             ),
             Text(
               "Hello, Again",
-              style: mTextStylr52(
+              style: mTextStylr43(
                   fontweight: FontWeight.bold,
-                  mColor: Theme.of(context).backgroundColor),
+                  mColor: Theme.of(context).canvasColor),
             ),
             SizedBox(
               height: 11,
             ),
             Text(
               "Welcome Back You\`ve been missed",
-              style: mTextStylr52(
+              style: mTextStylr19(
                   fontweight: FontWeight.w300,
                   mColor: Theme.of(context).shadowColor),
             ),
