@@ -5,10 +5,12 @@ class MyColors {
 
   static const Color bgWColor = Color(0xffffffff);
   static const Color secondryWColor = Color(0xfff1f0f3);
+  static const Color textWColor = Color(0xff2c293c);
 
   //dark theme color
   static const Color bgBColor = Color(0xff2c293c);
   static const Color secoundryBColor = Color(0xff737373);
+  static const Color textBColor = Color(0xffffffff);
 }
 
 MaterialColor createMaterialColor(Color color) {
@@ -36,26 +38,54 @@ MaterialColor createMaterialColor(Color color) {
   return MaterialColor(color.value, swatch);
 }
 
-TextStyle myHeadLine35({fColor = Colors.green, fweight = FontWeight.w500}) {
+TextStyle mTextStylr52({
+  mColor = Colors.green,
+  fontweight = FontWeight.normal,
+  fontStyle = FontStyle.normal,
+}) {
   return TextStyle(
-    color: fColor,
-    fontWeight: fweight,
-    fontSize: 35,
-  );
+      color: mColor,
+      fontWeight: fontweight,
+      fontSize: 52,
+      fontStyle: fontStyle,
+      fontFamily: 'Quicksand');
 }
 
-TextStyle myHeadLine21({fColor = Colors.red, fweight = FontWeight.w500}) {
+TextStyle mTextStylr26({
+  mColor = Colors.green,
+  fontweight = FontWeight.normal,
+  fontStyle = FontStyle.normal,
+}) {
   return TextStyle(
-    color: fColor,
-    fontWeight: fweight,
-    fontSize: 21,
-  );
+      color: mColor,
+      fontWeight: fontweight,
+      fontSize: 26,
+      fontStyle: fontStyle,
+      fontFamily: 'Quicksand');
 }
 
-TextStyle myHeadLine15({fColor = Colors.blue, fweight = FontWeight.w500}) {
+TextStyle mTextStylr19({
+  mColor = Colors.green,
+  fontweight = FontWeight.normal,
+  fontStyle = FontStyle.normal,
+}) {
   return TextStyle(
-    color: fColor,
-    fontWeight: fweight,
-    fontSize: 15,
-  );
+      color: mColor,
+      fontWeight: fontweight,
+      fontSize: 19,
+      fontStyle: fontStyle,
+      fontFamily: 'Quicksand');
+}
+
+TextStyle mTextStylr16({
+  mColor = Colors.green,
+  fontweight = FontWeight.normal,
+  fontStyle = FontStyle.normal,
+}) {
+  return TextStyle(
+      color: mColor,
+      fontWeight: fontweight,
+      fontSize: 16,
+      fontStyle: fontStyle,
+      fontFamily: 'Quicksand');
 }

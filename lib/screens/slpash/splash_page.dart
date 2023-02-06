@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:expenser_app/screens/user_onboarding/login/login_page.dart';
+import 'package:expenser_app/ui/custom_widgets/custom_logo_stack.dart';
 import 'package:flutter/material.dart';
 
 class Splashp_Page extends StatefulWidget {
@@ -26,22 +27,9 @@ class _Splashp_PageState extends State<Splashp_Page> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
-      body: Stack(
-        children: [
-          Center(
-              child: CircleAvatar(
-            backgroundColor: Theme.of(context).canvasColor,
-            radius: 50,
-          )),
-          Center(
-              child: ImageIcon(
-            AssetImage('assets/images/wallet_bw.png'),
-            size: 55,
-            color: Theme.of(context).backgroundColor,
-          ))
-        ],
-      ),
-    );
+        backgroundColor: Theme.of(context).backgroundColor,
+        body: Center(
+          child: CustomLogoStack(),
+        ));
   }
 }

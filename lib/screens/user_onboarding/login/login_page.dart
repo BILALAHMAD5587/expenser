@@ -1,3 +1,5 @@
+import 'package:expenser_app/ui/custom_widgets/custom_logo_stack.dart';
+import 'package:expenser_app/ui/custom_widgets/ui_helper.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -13,8 +15,21 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       body: Center(
-        child: Text(
-          "Login",
+        child: Column(
+          children: [
+            CustomLogoStack(),
+            SizedBox(height: 11,),
+            Text(
+              "Login",
+              style: mTextStylr52(
+                  fontweight: FontWeight.bold,
+                  mColor: Theme.of(context).canvasColor),
+            ),
+            SizedBox(height: 11,),
+            Text("Welcome Back You\`ve been missed", style: mTextStylr52(
+                fontweight: FontWeight.w300,
+                mColor: MyColors.),),
+          ],
         ),
       ),
     );
