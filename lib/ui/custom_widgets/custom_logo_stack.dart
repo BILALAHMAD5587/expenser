@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomLogoStack extends StatelessWidget {
-  const CustomLogoStack({Key? key}) : super(key: key);
+  double mSize;
+  CustomLogoStack(this.mSize);
 
   @override
   Widget build(BuildContext context) {
@@ -10,12 +11,12 @@ class CustomLogoStack extends StatelessWidget {
         Center(
             child: CircleAvatar(
           backgroundColor: Theme.of(context).canvasColor,
-          radius: 50,
+          radius: mSize,
         )),
         Center(
             child: ImageIcon(
           AssetImage('assets/images/wallet_bw.png'),
-          size: 55,
+          size: mSize,
           color: Theme.of(context).backgroundColor,
         ))
       ],

@@ -12,6 +12,7 @@ class CustomTextFiled extends StatelessWidget {
       controller: mcontroller,
       decoration: InputDecoration(
           fillColor: mfillcolor,
+          filled: true,
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(21))),
     );
   }

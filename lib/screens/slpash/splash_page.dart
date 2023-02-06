@@ -29,7 +29,7 @@ class _Splashp_PageState extends State<Splashp_Page> {
     return Scaffold(
         backgroundColor: Theme.of(context).backgroundColor,
         body: Center(
-          child: CustomLogoStack(),
+          child: CustomLogoStack(50),
         ));
   }
 }
