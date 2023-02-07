@@ -15,11 +15,13 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       themeMode: ThemeMode.light,
       darkTheme: ThemeData(
+          brightness: Brightness.dark,
           primarySwatch: createMaterialColor(MyColors.bgBColor),
           backgroundColor: MyColors.bgBColor,
           canvasColor: MyColors.bgWColor,
           shadowColor: MyColors.LighttextBColor),
       theme: ThemeData(
+          brightness: Brightness.light,
           primarySwatch: createMaterialColor(MyColors.bgWColor),
           backgroundColor: MyColors.bgWColor,
           canvasColor: MyColors.bgBColor,

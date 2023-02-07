@@ -1,3 +1,4 @@
+import 'package:expenser_app/ui/custom_widgets/ui_helper.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFiled extends StatelessWidget {
@@ -14,6 +15,10 @@ class CustomTextFiled extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       controller: mcontroller,
+      style: mTextStylr16(
+          mColor: Theme.of(context).brightness == Brightness.light
+              ? MyColors.textWColor
+              : MyColors.textBColor),
       decoration: InputDecoration(
           prefixIcon: Icon(micon),
           iconColor: Theme.of(context).backgroundColor,
