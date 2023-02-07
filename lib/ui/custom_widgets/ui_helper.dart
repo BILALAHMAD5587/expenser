@@ -104,3 +104,16 @@ TextStyle mTextStylr16({
       fontStyle: fontStyle,
       fontFamily: 'Quicksand');
 }
+
+TextStyle mTextStylr12({
+  mColor = Colors.green,
+  fontweight = FontWeight.normal,
+  fontStyle = FontStyle.normal,
+}) {
+  return TextStyle(
+      color: mColor,
+      fontWeight: fontweight,
+      fontSize: 12,
+      fontStyle: fontStyle,
+      fontFamily: 'Quicksand');
+}
