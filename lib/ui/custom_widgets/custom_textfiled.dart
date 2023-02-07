@@ -5,14 +5,18 @@ class CustomTextFiled extends StatelessWidget {
   Color mfillcolor;
   IconData micon;
 
-  CustomTextFiled({required this.mcontroller, required this.mfillcolor, required this.micon});
+  CustomTextFiled(
+      {required this.mcontroller,
+      required this.mfillcolor,
+      required this.micon});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       controller: mcontroller,
       decoration: InputDecoration(
-        prefixIcon: Icon(micon),
+          prefixIcon: Icon(micon),
+          iconColor: Theme.of(context).backgroundColor,
           prefixIconColor: Theme.of(context).backgroundColor,
           fillColor: mfillcolor,
           filled: true,

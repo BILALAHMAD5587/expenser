@@ -1,4 +1,5 @@
 import 'package:expenser_app/ui/custom_widgets/custom_logo_stack.dart';
+import 'package:expenser_app/ui/custom_widgets/custom_rounded_btn.dart';
 import 'package:expenser_app/ui/custom_widgets/custom_textfiled.dart';
 import 'package:expenser_app/ui/custom_widgets/ui_helper.dart';
 import 'package:flutter/material.dart';
@@ -49,18 +50,22 @@ class _LoginPageState extends State<LoginPage> {
                 height: 21,
               ),
               CustomTextFiled(
-                  mcontroller: userNameController,
-                  mfillcolor: Theme.of(context).canvasColor,
+                mcontroller: userNameController,
+                mfillcolor: Theme.of(context).canvasColor,
                 micon: Icons.email_outlined,
               ),
               SizedBox(
                 height: 11,
               ),
               CustomTextFiled(
-                  mcontroller: passController,
-                  mfillcolor: Theme.of(context).canvasColor,
-              micon: Icons.lock_open_outlined,
-              )
+                mcontroller: passController,
+                mfillcolor: Theme.of(context).canvasColor,
+                micon: Icons.lock_open_outlined,
+              ),
+              SizedBox(
+                height: 11,
+              ),
+              CustomRoundedBtn(callback: () {}, text: "Login")
             ],
           ),
         ),
