@@ -69,6 +69,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             CustomTextFiled(
               mcontroller: userNameController,
+              isPassword: false,
               mfillcolor: Theme.of(context).brightness == Brightness.light
                   ? MyColors.secondryWColor
                   : MyColors.secoundryBColor,
@@ -79,6 +80,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             CustomTextFiled(
               mcontroller: passController,
+              isPassword: true,
               mfillcolor: Theme.of(context).brightness == Brightness.light
                   ? MyColors.secondryWColor
                   : MyColors.secoundryBColor,
@@ -87,7 +89,13 @@ class _LoginPageState extends State<LoginPage> {
             SizedBox(
               height: 11,
             ),
-            CustomRoundedBtn(callback: () {}, text: "Login")
+            CustomRoundedBtn(callback: () {}, text: "Login"),
+            SizedBox(height: 12,),
+            Text('Create a New Account', style: width > 700 ? mTextStylr19(
+              fontweight: FontWeight.w300,
+              mColor: Theme.of(context).shadowColor)
+            : mTextStylr12(fontweight: FontWeight.w400,
+            mColor: Theme.of(context).shadowColor))
           ],
         ),
       ),

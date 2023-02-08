@@ -9,16 +9,23 @@ class CustomRoundedBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: callback,
-      child: Text(
-        text,
-        style: mTextStylr16(
-            mColor: Theme.of(context).backgroundColor,
-            fontweight: FontWeight.w800),
-      ),
-      style: ElevatedButton.styleFrom(
-        primary: Theme.of(context).canvasColor,
+    return SizedBox(
+      width: double.infinity,
+      height: MediaQuery.of(context).size.height*0.09,
+      child: ElevatedButton(
+        onPressed: callback,
+        child: Text(
+          text,
+          style: mTextStylr16(
+              mColor: Theme.of(context).backgroundColor,
+              fontweight: FontWeight.w800),
+        ),
+        style: ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(21)
+          ),
+          primary: Theme.of(context).brightness==Brightness.light ? MyColors.secoundryBColor : MyColors.secondryWColor,
+        ),
       ),
     );
   }
