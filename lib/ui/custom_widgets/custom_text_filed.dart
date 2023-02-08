@@ -23,6 +23,7 @@ class _CustomTextFiledState extends State<CustomTextFiled> {
   Widget build(BuildContext context) {
     return TextField(
       controller: widget.mcontroller,
+      cursorColor: Theme.of(context).brightness==Brightness.light ? MyColors.textWColor : MyColors.textBColor,
       style: mTextStylr16(
           mColor: Theme.of(context).brightness == Brightness.light
               ? MyColors.textWColor
@@ -34,7 +35,20 @@ class _CustomTextFiledState extends State<CustomTextFiled> {
           fillColor: widget.mfillcolor,
           filled: true,
           focusColor: Theme.of(context).backgroundColor,
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(21))),
+          enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                  width: 1,
+                  color: Theme.of(context).brightness==Brightness.light ? MyColors.textBColor : MyColors.textWColor
+              ),
+              borderRadius: BorderRadius.circular(21)),
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          width: 1,
+          color: Theme.of(context).brightness==Brightness.light ? MyColors.textWColor : MyColors.textBColor
+        ),
+        borderRadius: BorderRadius.circular(21)
+      )
+      ),
     );
   }
 }
