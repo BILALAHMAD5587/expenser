@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:expenser_app/screens/user_onboarding/login/login_page.dart';
+import 'package:expenser_app/screens/user_onboarding/signup/signup_page.dart';
 import 'package:expenser_app/ui/custom_widgets/custom_logo_stack.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,7 @@ class _Splashp_PageState extends State<Splashp_Page> {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => LoginPage(),
+            builder: (context) => SiginUp_Page(),
           ));
     });
   }

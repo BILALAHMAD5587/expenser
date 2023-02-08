@@ -1,4 +1,10 @@
+import 'dart:developer';
+
+import 'package:expenser_app/screens/user_onboarding/login/login_page.dart';
+import 'package:expenser_app/screens/user_onboarding/signup/bottom_action.dart';
 import 'package:expenser_app/ui/custom_widgets/custom_logo_stack.dart';
+import 'package:expenser_app/ui/custom_widgets/custom_rounded_btn.dart';
+import 'package:expenser_app/ui/custom_widgets/custom_text_filed.dart';
 import 'package:expenser_app/ui/custom_widgets/ui_helper.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +25,23 @@ class _SiginUp_PageState extends State<SiginUp_Page> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
+      body: MediaQuery.of(context).orientation == Orientation.portrait
+        ? MediaQuery.of(context).size.height > 700
+       ? mainUI() : SingleChildScrollView(
+        child: mainUI(),)
+      : Row(
+        children: [
+          Expanded(child: Container(
+            child: CustomLogoStack(50),
+            color: Theme.of(context).brightness == Brightness.light
+            ? MyColors.bgBColor
+            : MyColors.bgWColor,
+          )),
+          Expanded(child: MediaQuery.of(context).size.height > 700
+          ? mainUI()
+          : SingleChildScrollView(child: mainUI(),))
+        ],
+      ),
     );
   }
 
@@ -48,6 +71,65 @@ class _SiginUp_PageState extends State<SiginUp_Page> {
                   mColor: Theme.of(context).canvasColor) : mTextStylr12(
                   fontweight: FontWeight.w300,
                   mColor: Theme.of(context).canvasColor),),
+            ///////////////////////////////////Uname And Password////////////////////
+              SizedBox(height: 21),
+            CustomTextFiled(
+                mcontroller: nameController,
+                mfillcolor: Theme.of(context).brightness == Brightness.light
+                ? MyColors.secondryWColor
+                : MyColors.secoundryBColor,
+                micon: Icons.account_circle_outlined,
+                isPassword: false,
+                hint: 'Name Hare...'),
+            SizedBox(height: 11,),
+            CustomTextFiled(
+                mcontroller: emailcontroller,
+                mfillcolor: Theme.of(context).brightness == Brightness.light
+                    ? MyColors.secondryWColor
+                    : MyColors.secoundryBColor,
+                micon: Icons.email_outlined,
+                isPassword: false,
+                hint: 'Email Here..'),
+            SizedBox(height: 11,),
+            CustomTextFiled(
+                mcontroller: passController,
+                mfillcolor: Theme.of(context).brightness == Brightness.light
+                    ? MyColors.secondryWColor
+                    : MyColors.secoundryBColor,
+                micon: Icons.lock_open_outlined,
+                isPassword: true,
+                hint: 'Password here'),
+            SizedBox(height: 11,),
+            CustomTextFiled(
+                mcontroller: ConfirmPassController,
+                mfillcolor: Theme.of(context).brightness == Brightness.light
+                    ? MyColors.secondryWColor
+                    : MyColors.secoundryBColor,
+                micon: Icons.lock_open_outlined,
+                isPassword: true,
+                hint: 'Confirm Password here'),
+
+            SizedBox(height: 25,),
+            CustomRoundedBtn(callback: (){}, text: 'Sign Up'),
+            SizedBox(height: 11,),
+            if (constraints.maxWidth > 400 )
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: getChildren('Already have an Account, ', 'Login Now', (){
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder:
+                          (context) =>  LoginPage(),
+                      ));}, width, context)
+              )
+      else Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: getChildren('Already have an Account, ', 'Login now', (){
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginPage(),));
+              }, width, context),
+            )
+
 
           ],
         ),

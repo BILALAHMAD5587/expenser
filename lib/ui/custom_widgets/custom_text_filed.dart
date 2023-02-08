@@ -6,12 +6,15 @@ class CustomTextFiled extends StatefulWidget {
   Color mfillcolor;
   IconData micon;
   bool isPassword;
+  String hint;
+
 
   CustomTextFiled(
       {required this.mcontroller,
       required this.mfillcolor,
       required this.micon,
-      required this.isPassword});
+      required this.isPassword,
+      required this.hint});
 
   @override
   State<CustomTextFiled> createState() => _CustomTextFiledState();
@@ -35,6 +38,7 @@ class _CustomTextFiledState extends State<CustomTextFiled> {
                     ? MyColors.textWColor
                     : MyColors.textBColor),
             decoration: InputDecoration(
+              hintText: widget.hint,
                 prefixIcon: Icon(widget.micon),
                 suffixIcon: Padding(
                   padding: const EdgeInsets.only(right: 9),
@@ -81,6 +85,7 @@ class _CustomTextFiledState extends State<CustomTextFiled> {
                     ? MyColors.textWColor
                     : MyColors.textBColor),
             decoration: InputDecoration(
+              hintText: widget.hint,
                 prefixIcon: Icon(widget.micon),
                 iconColor: Theme.of(context).backgroundColor,
                 prefixIconColor: Theme.of(context).backgroundColor,

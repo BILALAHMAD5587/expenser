@@ -1,3 +1,4 @@
+import 'package:expenser_app/screens/user_onboarding/signup/signup_page.dart';
 import 'package:expenser_app/ui/custom_widgets/custom_logo_stack.dart';
 import 'package:expenser_app/ui/custom_widgets/custom_rounded_btn.dart';
 import 'package:expenser_app/ui/custom_widgets/custom_text_filed.dart';
@@ -71,6 +72,7 @@ class _LoginPageState extends State<LoginPage> {
               height: 21,
             ),
             CustomTextFiled(
+              hint: 'Email Here',
               mcontroller: userNameController,
               isPassword: false,
               mfillcolor: Theme.of(context).brightness == Brightness.light
@@ -82,6 +84,7 @@ class _LoginPageState extends State<LoginPage> {
               height: 11,
             ),
             CustomTextFiled(
+              hint: 'PassWord Here',
               mcontroller: passController,
               isPassword: true,
               mfillcolor: Theme.of(context).brightness == Brightness.light
@@ -124,7 +127,7 @@ class _LoginPageState extends State<LoginPage> {
                     mColor: Theme.of(context).shadowColor)),
                 TextButton(
                   onPressed: () {
-
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SiginUp_Page()));
                   },
                   child: Text('Sign Up Now', style: width > 700 ? mTextStylr19(
                       fontweight: FontWeight.w300,
