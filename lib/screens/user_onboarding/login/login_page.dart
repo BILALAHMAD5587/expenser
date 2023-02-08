@@ -19,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
-      body: MediaQuery.of(context).size.height > 350
+      body: MediaQuery.of(context).size.height > 500
           ? mainUI()
           : SingleChildScrollView(
               child: mainUI(),
@@ -31,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
     var width = MediaQuery.of(context).size.width;
     return Center(
       child: Padding(
-        padding: const EdgeInsets.only(left: 21, right: 21),
+        padding: const EdgeInsets.all(21),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -87,15 +87,31 @@ class _LoginPageState extends State<LoginPage> {
               micon: Icons.lock_open_outlined,
             ),
             SizedBox(
-              height: 11,
+              height: 25,
             ),
             CustomRoundedBtn(callback: () {}, text: "Login"),
             SizedBox(height: 12,),
-            Text('Create a New Account', style: width > 700 ? mTextStylr19(
-              fontweight: FontWeight.w300,
-              mColor: Theme.of(context).shadowColor)
-            : mTextStylr12(fontweight: FontWeight.w400,
-            mColor: Theme.of(context).shadowColor))
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('Create a New Account', style: width > 700 ? mTextStylr19(
+                  fontweight: FontWeight.w300,
+                  mColor: Theme.of(context).shadowColor)
+                : mTextStylr12(fontweight: FontWeight.w400,
+                mColor: Theme.of(context).shadowColor)),
+                TextButton(
+                  onPressed: () {
+
+                  },
+                  child: Text('Sign Up Now', style: width > 700 ? mTextStylr19(
+                      fontweight: FontWeight.w300,
+                      mColor: Theme.of(context).canvasColor)
+                      : mTextStylr12(fontweight: FontWeight.w400,
+                      mColor: Theme.of(context).canvasColor)),
+                )
+
+              ],
+            )
           ],
         ),
       ),
