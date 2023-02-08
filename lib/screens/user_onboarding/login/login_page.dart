@@ -17,6 +17,9 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    
+    print(MediaQuery.of(context).size.width);
+    
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       body: MediaQuery.of(context).size.height > 500
@@ -91,7 +94,8 @@ class _LoginPageState extends State<LoginPage> {
             ),
             CustomRoundedBtn(callback: () {}, text: "Login"),
             SizedBox(height: 12,),
-            Row(
+
+            MediaQuery.of(context).size.width> 251.333 ? Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text('Create a New Account', style: width > 700 ? mTextStylr19(
@@ -111,7 +115,25 @@ class _LoginPageState extends State<LoginPage> {
                 )
 
               ],
-            )
+            ) : Column(mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('Create a New Account', style: width > 700 ? mTextStylr19(
+                    fontweight: FontWeight.w300,
+                    mColor: Theme.of(context).shadowColor)
+                    : mTextStylr12(fontweight: FontWeight.w400,
+                    mColor: Theme.of(context).shadowColor)),
+                TextButton(
+                  onPressed: () {
+
+                  },
+                  child: Text('Sign Up Now', style: width > 700 ? mTextStylr19(
+                      fontweight: FontWeight.w300,
+                      mColor: Theme.of(context).canvasColor)
+                      : mTextStylr12(fontweight: FontWeight.w400,
+                      mColor: Theme.of(context).canvasColor)),
+                )
+
+              ],)
           ],
         ),
       ),
