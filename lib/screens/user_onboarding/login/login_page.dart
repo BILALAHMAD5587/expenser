@@ -1,3 +1,4 @@
+import 'package:expenser_app/screens/user_onboarding/signup/bottom_action.dart';
 import 'package:expenser_app/screens/user_onboarding/signup/signup_page.dart';
 import 'package:expenser_app/ui/custom_widgets/custom_logo_stack.dart';
 import 'package:expenser_app/ui/custom_widgets/custom_rounded_btn.dart';
@@ -23,16 +24,31 @@ class _LoginPageState extends State<LoginPage> {
     
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
-      body: MediaQuery.of(context).size.height > 500
-          ? mainUI()
-          : SingleChildScrollView(
-              child: mainUI(),
-            ),
+      body: MediaQuery.of(context).orientation == Orientation.portrait
+          ? MediaQuery.of(context).size.height > 700
+          ? mainUI() : SingleChildScrollView(
+        child: mainUI(),)
+          : Row(
+        children: [
+          Expanded(child: Container(
+            child: CustomLogoStack(50),
+            color: Theme.of(context).brightness == Brightness.light
+                ? MyColors.bgBColor
+                : MyColors.bgWColor,
+          )),
+          Expanded(child: MediaQuery.of(context).size.height > 700
+              ? mainUI()
+              : SingleChildScrollView(child: mainUI(),))
+        ],
+      ),
     );
   }
 
   Widget mainUI() {
     var width = MediaQuery.of(context).size.width;
+    return LayoutBuilder(builder: (context, constraints){
+      print(constraints.maxWidth);
+      print(constraints.minWidth);
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(21),
@@ -98,7 +114,7 @@ class _LoginPageState extends State<LoginPage> {
             CustomRoundedBtn(callback: () {}, text: "Login"),
             SizedBox(height: 12,),
 
-            MediaQuery.of(context).size.width> 251.333 ? Row(
+            MediaQuery.of(context).size.width> 351.333 ? Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text('Create a New Account', style: width > 700 ? mTextStylr19(
@@ -136,12 +152,35 @@ class _LoginPageState extends State<LoginPage> {
                       mColor: Theme.of(context).canvasColor)
                       : mTextStylr12(fontweight: FontWeight.w400,
                       mColor: Theme.of(context).canvasColor)),
+                ),
+
+
+                if (constraints.maxWidth > 400 )
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: getChildren('Already have an Account, ', 'Login Now', (){
+                        Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder:
+                                (context) =>  LoginPage(),
+                            ));}, width, context)
+                  )
+                else Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: getChildren('Already have an Account, ', 'Login now', (){
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginPage(),));
+                  }, width, context),
                 )
 
-              ],)
+
+              ],
+      )
           ],
         ),
-      ),
+      )
+      );
+    }
     );
   }
 }

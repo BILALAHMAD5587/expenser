@@ -133,7 +133,9 @@ class _SiginUp_PageState extends State<SiginUp_Page> {
 
           ],
         ),
-        ),);
-    });
+        ),
+      );
+    }
+    );
   }
 }
