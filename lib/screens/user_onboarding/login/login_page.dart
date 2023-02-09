@@ -108,7 +108,8 @@ class _LoginPageState extends State<LoginPage> {
                 mColor: Theme.of(context).shadowColor)),
                 TextButton(
                   onPressed: () {
-
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => SiginUp_Page()));
                   },
                   child: Text('Sign Up Now', style: width > 700 ? mTextStylr19(
                       fontweight: FontWeight.w300,
@@ -127,7 +128,8 @@ class _LoginPageState extends State<LoginPage> {
                     mColor: Theme.of(context).shadowColor)),
                 TextButton(
                   onPressed: () {
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SiginUp_Page()));
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => SiginUp_Page()));
                   },
                   child: Text('Sign Up Now', style: width > 700 ? mTextStylr19(
                       fontweight: FontWeight.w300,
