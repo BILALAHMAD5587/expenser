@@ -26,7 +26,13 @@ class _CustomTextFiledState extends State<CustomTextFiled> {
   @override
   Widget build(BuildContext context) {
     return widget.isPassword
-        ? TextField(
+        ? TextFormField(
+      validator: (value){
+        if (value == null || value.isEmpty) {
+          return 'This Field Can\`t be empty!';
+        }
+        return null;
+      },
             obscuringCharacter: '*',
             obscureText: !passVisible,
             controller: widget.mcontroller,
@@ -75,7 +81,13 @@ class _CustomTextFiledState extends State<CustomTextFiled> {
                             : MyColors.textBColor),
                     borderRadius: BorderRadius.circular(21))),
           )
-        : TextField(
+        : TextFormField(
+      validator: (value){
+        if (value == null || value.isEmpty) {
+          return 'This Field Can\`t be empty!';
+        }
+        return null;
+      },
             controller: widget.mcontroller,
             cursorColor: Theme.of(context).brightness == Brightness.light
                 ? MyColors.textWColor

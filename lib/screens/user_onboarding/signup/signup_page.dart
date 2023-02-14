@@ -21,6 +21,8 @@ class _SiginUp_PageState extends State<SiginUp_Page> {
   var passController = TextEditingController();
   var ConfirmPassController = TextEditingController();
 
+  final _formkey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,85 +55,94 @@ class _SiginUp_PageState extends State<SiginUp_Page> {
 
       return Center(child:
         Padding(padding: const EdgeInsets.all(21),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CustomLogoStack(width > 500 ? 50 : 34),
-            SizedBox(height: 21,),
-            Text('Get Started',
-            style: constraints.maxWidth > 500 ? mTextStylr43(
-              fontweight: FontWeight.bold,
-              mColor: Theme.of(context).canvasColor) : mTextStylr26(
-              fontweight: FontWeight.bold,
-              mColor: Theme.of(context).canvasColor),),
-            SizedBox(height: 11,),
-            Text('Start managing Your Expense Today!',
-              style: constraints.maxWidth > 500 ? mTextStylr19(
-                  fontweight: FontWeight.w300,
-                  mColor: Theme.of(context).canvasColor) : mTextStylr12(
-                  fontweight: FontWeight.w300,
-                  mColor: Theme.of(context).canvasColor),),
-            ///////////////////////////////////Uname And Password////////////////////
-              SizedBox(height: 21),
-            CustomTextFiled(
-                mcontroller: nameController,
-                mfillcolor: Theme.of(context).brightness == Brightness.light
-                ? MyColors.secondryWColor
-                : MyColors.secoundryBColor,
-                micon: Icons.account_circle_outlined,
-                isPassword: false,
-                hint: 'Name Hare...'),
-            SizedBox(height: 11,),
-            CustomTextFiled(
-                mcontroller: emailcontroller,
-                mfillcolor: Theme.of(context).brightness == Brightness.light
-                    ? MyColors.secondryWColor
-                    : MyColors.secoundryBColor,
-                micon: Icons.email_outlined,
-                isPassword: false,
-                hint: 'Email Here..'),
-            SizedBox(height: 11,),
-            CustomTextFiled(
-                mcontroller: passController,
-                mfillcolor: Theme.of(context).brightness == Brightness.light
-                    ? MyColors.secondryWColor
-                    : MyColors.secoundryBColor,
-                micon: Icons.lock_open_outlined,
-                isPassword: true,
-                hint: 'Password here'),
-            SizedBox(height: 11,),
-            CustomTextFiled(
-                mcontroller: ConfirmPassController,
-                mfillcolor: Theme.of(context).brightness == Brightness.light
-                    ? MyColors.secondryWColor
-                    : MyColors.secoundryBColor,
-                micon: Icons.lock_open_outlined,
-                isPassword: true,
-                hint: 'Confirm Password here'),
+        child: Form(
+          key: _formkey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CustomLogoStack(width > 500 ? 50 : 34),
+              SizedBox(height: 21,),
+              Text('Get Started',
+              style: constraints.maxWidth > 500 ? mTextStylr43(
+                fontweight: FontWeight.bold,
+                mColor: Theme.of(context).canvasColor) : mTextStylr26(
+                fontweight: FontWeight.bold,
+                mColor: Theme.of(context).canvasColor),),
+              SizedBox(height: 11,),
+              Text('Start managing Your Expense Today!',
+                style: constraints.maxWidth > 500 ? mTextStylr19(
+                    fontweight: FontWeight.w300,
+                    mColor: Theme.of(context).canvasColor) : mTextStylr12(
+                    fontweight: FontWeight.w300,
+                    mColor: Theme.of(context).canvasColor),),
+              ///////////////////////////////////Uname And Password////////////////////
+                SizedBox(height: 21),
+              CustomTextFiled(
+                  mcontroller: nameController,
+                  mfillcolor: Theme.of(context).brightness == Brightness.light
+                  ? MyColors.secondryWColor
+                  : MyColors.secoundryBColor,
+                  micon: Icons.account_circle_outlined,
+                  isPassword: false,
+                  hint: 'Name Hare...'),
+              SizedBox(height: 11,),
+              CustomTextFiled(
+                  mcontroller: emailcontroller,
+                  mfillcolor: Theme.of(context).brightness == Brightness.light
+                      ? MyColors.secondryWColor
+                      : MyColors.secoundryBColor,
+                  micon: Icons.email_outlined,
+                  isPassword: false,
+                  hint: 'Email Here..'),
+              SizedBox(height: 11,),
+              CustomTextFiled(
+                  mcontroller: passController,
+                  mfillcolor: Theme.of(context).brightness == Brightness.light
+                      ? MyColors.secondryWColor
+                      : MyColors.secoundryBColor,
+                  micon: Icons.lock_open_outlined,
+                  isPassword: true,
+                  hint: 'Password here'),
+              SizedBox(height: 11,),
+              CustomTextFiled(
+                  mcontroller: ConfirmPassController,
+                  mfillcolor: Theme.of(context).brightness == Brightness.light
+                      ? MyColors.secondryWColor
+                      : MyColors.secoundryBColor,
+                  micon: Icons.lock_open_outlined,
+                  isPassword: true,
+                  hint: 'Confirm Password here'),
 
-            SizedBox(height: 25,),
-            CustomRoundedBtn(callback: (){}, text: 'Sign Up'),
-            SizedBox(height: 11,),
-            if (constraints.maxWidth > 400 )
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: getChildren('Already have an Account, ', 'Login Now', (){
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder:
-                          (context) =>  LoginPage(),
-                      ));}, width, context)
-              )
+              SizedBox(height: 25,),
+              CustomRoundedBtn(callback: (){
+                if (_formkey.currentState!.validate()) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Processing Data'))
+                  );
+                }
+              }, text: 'Sign Up'),
+              SizedBox(height: 11,),
+              if (constraints.maxWidth > 400 )
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: getChildren('Already have an Account, ', 'Login Now', (){
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder:
+                            (context) =>  LoginPage(),
+                        ));}, width, context)
+                )
       else Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: getChildren('Already have an Account, ', 'Login now', (){
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => LoginPage(),));
-              }, width, context),
-            )
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: getChildren('Already have an Account, ', 'Login now', (){
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginPage(),));
+                }, width, context),
+              )
 
 
-          ],
+            ],
+          ),
         ),
         ),
       );
